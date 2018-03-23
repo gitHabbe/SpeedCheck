@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+footer {
+    color: rgb(3, 224, 14);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #4e4d4d;
+    text-align: center;
+}
+
+.navbar ul {
+    font-family: 'Open Sans', sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* width: 200px; */
+    background-color: #222;
+    margin-bottom: 20px;
+}
+.navbar li {
+    float: left;    
+}
+
+.navbar li a {
+    display: block;
+    color: #FFF;
+    text-decoration: none;
+    padding: 8px 16px;
+    text-align: center;
+}
+
+.navbar li a:hover {
+    color: whitesmoke;
+    background-color: #3E8EDE;
+}
+
+.calculatorform {
+    color: pink;
+}
