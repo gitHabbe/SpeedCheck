@@ -3,6 +3,18 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%
+}
+
+body {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    /* padding-bottom: 40px; */
+}
+
+.content {
+    padding-bottom: 3rem;
 }
 footer {
     color: rgb(3, 224, 14);
@@ -16,6 +28,9 @@ footer {
 }
 
 .navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Open Sans', sans-serif;
     list-style-type: none;
     margin: 0;
@@ -43,5 +58,96 @@ footer {
 }
 
 .calculatorform {
-    color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculatorform button {
+    background-color: rgb(26, 115, 187); /* Green */
+    border: none;
+    color: white;
+    padding: 13px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.calculatorform button:hover {
+    background-color: rgb(150, 25, 175);
+    color: white;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.calculatorform input {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid rgb(73, 70, 70);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.calculatorform input[type=text]:focus {
+    border: 3px solid rgb(10, 126, 0);
+}
+
+.speedcompform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.playertable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.playertable th, td {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+}
+
+.playertable tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.playertable tbody tr th {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 50px;
+}
+
+
+.purple {
+    color: purple
+}
+.red {
+    color: red
+}
+.green {
+    color: green
+}
+
+.total_difference {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
 }

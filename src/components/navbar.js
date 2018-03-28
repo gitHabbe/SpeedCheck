@@ -7,9 +7,9 @@ const Navbar = () => {
     return (
         <div className={style.navbar}>
             <ul>
-                <li><NavbarItem href="/" name="Home" /></li>
-                <li><NavbarItem href="/lap-calculator" name="Lap calculator" /></li>
-                <li><NavbarItem href="speedcomp" name="Speed comparison" /></li>
+                <NavbarItem href="/" name="Home" />
+                <NavbarItem href="/lap-calculator" name="Lap calculator" />
+                <NavbarItem href="/speedcomp" name="Speed comparison" />
             </ul>
         </div>
     );

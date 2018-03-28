@@ -5,7 +5,7 @@ import style from '../style/style.css'
 const NavbarItem = (props) => {
     return (
         <div className="navbar-item">
-            <Link to={props.href}>{props.name}</Link>
+            <li><Link to={props.href}>{props.name}</Link></li>
         </div>
     );
 };
