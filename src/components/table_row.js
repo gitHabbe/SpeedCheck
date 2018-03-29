@@ -33,7 +33,7 @@ class TableRow extends Component {
         }
 
         return (
-            <tr key={this.props.key}>
+            <tr>
                 <td>{this.state.track}</td>
                 <td style={p1_style}>{util.include_minutes(this.props.p1)}</td>
                 <td style={p2_style}>{util.include_minutes(this.props.p2)}</td>
