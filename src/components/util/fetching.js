@@ -69,6 +69,20 @@ async function fetch_track_times(list, limited = true) {
     }
     return track_list;
 }
+
+async function fetch_top10_tracks(list) {
+    let track_list = []
+    // for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < 3; i++) {
+        const element = list[i];
+        const track = await fetch_uri(element.leaderboard_uri + "?top=10");
+        element.leaderboard = track.data.data.runs;
+        track_list.push(element)
+    }
+    return track_list;
+}
+
+
 /**
  * Grab player1 and player2's time + track name
  * 
@@ -111,5 +125,8 @@ async function fetch_level_list_leaderboard(track_list, player1, player2) {
     module.exports = {
         fetch_level_list_leaderboard: fetch_level_list_leaderboard,
         fetch_track_names: fetch_track_names,
-        fetch_track_times: fetch_track_times
+        fetch_track_times: fetch_track_times,
+        get_player_id: get_player_id,
+        fetch_top10_tracks: fetch_top10_tracks,
+        fetch_track_names: fetch_track_names
     }

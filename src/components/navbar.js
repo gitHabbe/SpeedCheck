@@ -10,6 +10,7 @@ const Navbar = () => {
                 <NavbarItem href="/" name="Home" />
                 <NavbarItem href="/lap-calculator" name="Lap calculator" />
                 <NavbarItem href="/speedcomp" name="Speed comparison" />
+                <NavbarItem href="/paddyboard" name="PaddyBoard" />
             </ul>
         </div>
     );
