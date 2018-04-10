@@ -11,33 +11,64 @@ class PaddyBoard extends Component {
         super(props)
 
         this.state = {
+            player_scores: [],
             paddy_row: []
         }
+
+        this.sort_by_total_points = this.sort_by_total_points.bind(this);
+        this.sort_by_atr_points = this.sort_by_atr_points.bind(this);
+        this.sort_by_name = this.sort_by_name.bind(this);
     }
 
-
     async get_player_components(player_points) {
-        function sort_total(a, b) {
-            let comparison = 0;
-            if (a.total_points > b.total_points) {
-                return comparison = -1;
-            }
-            return comparison = 1;
-        }
-        let test2 = player_points.sort(sort_total)
-        console.log('test2: ', test2);
-        let test = []
+        let row_list = []
         player_points.forEach((player, index) => {
-            test.push(<PaddyRow
+            row_list.push(<PaddyRow
                 key={index}
                 name={player.name}
                 total_points={player.total_points}
-                atr_points={player.atr_points}
-                 />)
+                atr_points={player.atr_points} />)
         })
-        this.setState({paddy_row: test})
+        this.setState({paddy_row: row_list})
     }
     
+    sort_by_total_points(e) {
+        e.preventDefault();
+        let player_points = this.state.player_scores;
+        function sort_total(a, b) {
+            let comparison = 0;
+            if (a.total_points > b.total_points) return comparison = -1;
+            return comparison = 1;
+        }
+        player_points.sort(sort_total);
+        this.get_player_components(player_points);
+
+    }
+
+    sort_by_atr_points(e) {
+        e.preventDefault();
+        let player_points = this.state.player_scores;
+        function sort_atr(a, b) {
+            let comparison = 0;
+            if (a.atr_points > b.atr_points) return comparison = -1;
+            return comparison = 1;
+        }
+        player_points.sort(sort_atr);
+        this.get_player_components(player_points);
+    }
+
+    sort_by_name(e) {
+        e.preventDefault();
+        let player_points = this.state.player_scores;
+        function sort_name(a, b) {
+            let comparison = 0;
+            if (a.name < b.name) return comparison = -1;
+            return comparison = 1;
+        }
+        player_points.sort(sort_name);
+        this.get_player_components(player_points);
+    }
+
     async componentDidMount() {
         let player_points = contenders.contenders.map(player => { 
             return { name: player.name, id: player.id, atr_points: 0, total_points: 0 }
@@ -57,6 +88,7 @@ class PaddyBoard extends Component {
                 })
             })
         })
+        this.setState({player_scores: player_points})
         this.get_player_components(player_points);
         console.log('player_points: ', player_points);
         
@@ -68,11 +100,12 @@ class PaddyBoard extends Component {
                 <table className={style.playertable}>
                     <tbody>
                         <tr>
-                            <th>Name</th>
-                            <th>Points</th>
-                            <th>ATR Points</th>
+                            <th onClick={this.sort_by_name} className={style.table_title}>Name</th>
+                            {/* <th>Name</th> */}
+                            <th onClick={this.sort_by_total_points} className={style.table_title}>Points</th>
+                            <th onClick={this.sort_by_atr_points} className={style.table_title}>ATR Points</th>
                         </tr>
-                    {this.state.paddy_row}
+                        {this.state.paddy_row}
                     </tbody>  
                 </table>
             </div>

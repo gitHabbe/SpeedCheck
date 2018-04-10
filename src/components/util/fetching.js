@@ -72,8 +72,8 @@ async function fetch_track_times(list, limited = true) {
 
 async function fetch_top10_tracks(list) {
     let track_list = []
-    // for (let i = 0; i < list.length; i++) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < list.length; i++) {
+    // for (let i = 0; i < 3; i++) {
         const element = list[i];
         const track = await fetch_uri(element.leaderboard_uri + "?top=10");
         element.leaderboard = track.data.data.runs;
@@ -117,10 +117,9 @@ async function fetch_level_list_leaderboard(track_list, player1, player2) {
     return track_and_times;
     };
     
-    // fetch_player_pbs(id) {
-    //     // dkr: 9dow9e1p
-    //     return axios.get(`https://www.speedrun.com/api/v1/users/${id}/personal-bests?game=9dow9e1p`);
-    // };
+    async function fetch_dkr64_track_wr(track, vehicle, laps) {
+        return axios.get(`https://www.dkr64.com/api/world_record?api_token=${process.env.DKR64_API_TOKEN}&track=ancient-lake&vehicle=car&type=standard&laps=3`)
+    }
     
     module.exports = {
         fetch_level_list_leaderboard: fetch_level_list_leaderboard,
@@ -128,5 +127,6 @@ async function fetch_level_list_leaderboard(track_list, player1, player2) {
         fetch_track_times: fetch_track_times,
         get_player_id: get_player_id,
         fetch_top10_tracks: fetch_top10_tracks,
-        fetch_track_names: fetch_track_names
+        fetch_track_names: fetch_track_names,
+        fetch_dkr64_track_wr: fetch_dkr64_track_wr
     }
