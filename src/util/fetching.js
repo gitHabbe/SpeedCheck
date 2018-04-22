@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import dkr_levels from '../../dkr_levels.json';
+import dkr_levels from '../dkr_levels.json';
 /**
  * Fetching src uri
  * 
@@ -10,6 +10,7 @@ import dkr_levels from '../../dkr_levels.json';
 function fetch_uri(uri) {
     return axios.get(uri)
 };
+
 /**
  * @param {string} name 
  * @returns promise
@@ -18,6 +19,7 @@ function fetch_player(name) {
     // return axios.get(`https://www.speedrun.com/api/v1/games/9dow9e1p/levels`)
     return axios.get(`https://www.speedrun.com/api/v1/users?name=${name}`)
 };
+
 /**
  * src name to player ID
  * 
@@ -32,6 +34,7 @@ async function get_player_id(name) {
 function fetch_level_list() {
     return axios.get("https://www.speedrun.com/api/v1/games/9dow9e1p/levels")
 };
+
 /**
  * @returns {array} w/ { name, id, uri }
  */
@@ -82,7 +85,6 @@ async function fetch_top10_tracks(list) {
     return track_list;
 }
 
-
 /**
  * Grab player1 and player2's time + track name
  * 
@@ -115,18 +117,19 @@ async function fetch_level_list_leaderboard(track_list, player1, player2) {
     }
     console.log('track_and_times: ', track_and_times);
     return track_and_times;
-    };
+};
     
-    async function fetch_dkr64_track_wr(track, vehicle, laps) {
-        return axios.get(`https://www.dkr64.com/api/world_record?api_token=${process.env.DKR64_API_TOKEN}&track=ancient-lake&vehicle=car&type=standard&laps=3`)
-    }
-    
-    module.exports = {
-        fetch_level_list_leaderboard: fetch_level_list_leaderboard,
-        fetch_track_names: fetch_track_names,
-        fetch_track_times: fetch_track_times,
-        get_player_id: get_player_id,
-        fetch_top10_tracks: fetch_top10_tracks,
-        fetch_track_names: fetch_track_names,
-        fetch_dkr64_track_wr: fetch_dkr64_track_wr
-    }
+async function fetch_dkr64_track_wr(track, vehicle, laps) {
+    // return axios.get(`https://www.dkr64.com/api/world_record?api_token=${process.env.DKR64_API_TOKEN}&track=${track}&vehicle=${vehicle}&type=standard&laps=${laps}`)
+    return axios.get(`https://www.dkr64.com/api/times?api_token=${process.env.DKR64_API_TOKEN}&track=${track}&vehicle=${vehicle}&type=standard&laps=${laps}&limit=5`);
+}
+
+module.exports = {
+    fetch_level_list_leaderboard: fetch_level_list_leaderboard,
+    fetch_track_names: fetch_track_names,
+    fetch_track_times: fetch_track_times,
+    get_player_id: get_player_id,
+    fetch_top10_tracks: fetch_top10_tracks,
+    fetch_track_names: fetch_track_names,
+    fetch_dkr64_track_wr: fetch_dkr64_track_wr
+}

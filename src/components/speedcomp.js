@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import fetching from "./util/fetching.js";
+import fetching from "../util/fetching.js";
 import TableRow from '../components/table_row.js'
 import style from '../style/style.css';
 
@@ -19,7 +19,7 @@ class SpeedComp extends Component {
 
         this.onChangeHandle = this.onChangeHandle.bind(this);
         this.submitHandle = this.submitHandle.bind(this);
-        this.selectOnChange = this.selectOnChange.bind(this);
+        this.radioOnChange = this.radioOnChange.bind(this);
     }
     
     onChangeHandle(e) {
@@ -27,9 +27,13 @@ class SpeedComp extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    selectOnChange(e) {
+    radioOnChange(e) {
         e.preventDefault();
         console.log(e.target)
+        console.log('....................');
+        
+        console.log(e.target.checked);
+        
         this.setState({ limited: (e.target.value === "true") })
     }
 
@@ -69,22 +73,24 @@ class SpeedComp extends Component {
     render() {
         console.log(this.state.limited)
         return (
-            <div>
-                <form className={style.speedcompform}>
+            <div className={style.speedcompparent}>
+                <form>
                     <div>
                         <input placeholder="Player 1 (you)" onChange={this.onChangeHandle} type="text" name="player1"/>
                         <input placeholder="Player 2" onChange={this.onChangeHandle} type="text" name="player2"/>    
                     </div>
-                    <select onChange={this.selectOnChange} value={this.state.limited}>
-                        <option value="true">Run tracks</option>
-                        <option value="false">All tracks</option>
-                    </select>
-                    <button onClick={this.submitHandle}>Check</button>
+                    <div>
+                        <span><input onChange={this.radioOnChange} type="radio" name="track-filter" value="true" />Run Tracks</span>
+                        <span><input onChange={this.radioOnChange} type="radio" name="track-filter" value="false" />All Tracks</span>
+                        
+                        
+                        <button onClick={this.submitHandle}>Check</button>
+                    </div>
                 </form>
                 <p className={style.total_difference}>{this.state.total_diff}</p>
-                <table className={style.playertable}>
+                <table>
                     <tbody>
-                        <tr key="header">
+                        <tr>
                             <th>Track</th>
                             <th>{this.state.player_list[0]}</th>
                             <th>{this.state.player_list[1]}</th>

@@ -1,6 +1,5 @@
 // require('dotenv').config({path: '../.'});
 require('dotenv').load();
-console.log(process.env.DKR64_API_TOKEN)
 import React from "react";
 import ReactDOM from "react-dom";
 import 'babel-polyfill';

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import style from '../style/style.css'
-import fetching from './util/fetching.js'
+import fetching from '../util/fetching.js'
 import dkr_levels from '../dkr_levels.json';
-import util from '../components/util/time_to_string.js'
+import util from '../util/time_to_string.js'
 
 class TableRow extends Component {
     constructor(props) {
