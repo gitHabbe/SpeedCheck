@@ -15,17 +15,18 @@ class TTBoard extends Component {
             current_level: 'Ancient Lake',
             current_vehicle: 'car',
             current_laps: '3',
+            current_span: [1, 5],
             component_list: []
         }
 
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleLevelSelectChange = this.handleLevelSelectChange.bind(this)
-        this.handleVehicleSelectChange = this.handleVehicleSelectChange.bind(this)
-        this.handleLapsSelectChange = this.handleLapsSelectChange.bind(this)
-        
-
+        this.handleVehicleInputChange = this.handleVehicleInputChange.bind(this)
+        this.handleLapsInputChange = this.handleLapsInputChange.bind(this)
+        this.handleSpanInputChange = this.handleSpanInputChange.bind(this)
+        this.handleSpanInputChange2 = this.handleSpanInputChange2.bind(this)
     }
-
+    
     async handleButtonClick(e) {
         e.preventDefault();
         // format track-name correctly
@@ -34,12 +35,13 @@ class TTBoard extends Component {
         const test = await fetching.fetch_dkr64_track_wr(
             track,
             this.state.current_vehicle,
-            this.state.current_laps
+            this.state.current_laps,
+            this.state.current_span[1]
         )
         console.log(test.data.times);
         
-        asdf = test.data.times.map((res, index) => {
-            return <TT_Info key={index} rank={res.ranking} name={res.player_name} time={res.time} />
+        asdf = test.data.times.slice(this.state.current_span[0] - 1).map((res, index) => {
+            return <TT_Info key={index} rank={res.ranking} name={res.player_name} time={res.time} flag={res.country_iso.toLowerCase()} />
         })
         this.setState({ component_list: asdf })
     }
@@ -48,12 +50,25 @@ class TTBoard extends Component {
         this.setState({ current_level: e.target.value })
     }
 
-    handleVehicleSelectChange(e) {
+    handleVehicleInputChange(e) {
+        console.log('e.target.value: ', e.target.value);
         this.setState({ current_vehicle: e.target.value })
     }
 
-    handleLapsSelectChange(e) {
+    handleLapsInputChange(e) {
         this.setState({ current_laps: e.target.value })
+        console.log('e.target.value: ', e.target.value);
+    }
+    
+    handleSpanInputChange(e) {
+        let list_values = [e.target.value, this.state.current_span[1]]
+        this.setState({ current_span: list_values })
+        console.log('e.target.value: ', e.target.value);
+    }
+    handleSpanInputChange2(e) {
+        let list_values = [this.state.current_span[0], e.target.value]
+        this.setState({ current_span: list_values })
+        console.log('e.target.value: ', e.target.value);
     }
 
     componentDidMount() {
@@ -72,18 +87,49 @@ class TTBoard extends Component {
                     <select name="levels" onChange={this.handleLevelSelectChange}>
                         {this.state.level_list.map((level, index) => <option key={index}value={level}>{level}</option>)}
                     </select>
-                    <br />
-                    <br />
-                    <select name="vehicle" value={this.current_vehicle} onChange={this.handleVehicleSelectChange}>
-                        <option value="car">car</option>
-                        <option value="hover">Hover</option>
-                        <option value="plane">Plane</option>
-                    </select>
-                    <select name="laps" onChange={this.handleLapsSelectChange}>
-                        <option value="3">3</option>
-                        <option value="1">1</option>
-                    </select>
-                    <input onClick={this.handleButtonClick} type="submit" />
+                    <div>
+                        <input
+                            type="radio"
+                            name="vehicle"
+                            value="car"
+                            onChange={this.handleVehicleInputChange} />Car
+                        <input
+                            type="radio"
+                            name="vehicle"
+                            value="hover"
+                            onChange={this.handleVehicleInputChange} />Hover
+                        <input
+                            type="radio"
+                            name="vehicle"
+                            value="plane"
+                            onChange={this.handleVehicleInputChange} />Plane
+                    </div>
+                    <div>
+                        <span>Laps: </span>
+                        <input
+                            type="radio"
+                            name="laps"
+                            value="3"
+                            onChange={this.handleLapsInputChange} />3
+                        <input
+                            type="radio"
+                            name="laps"
+                            value="1"
+                            onChange={this.handleLapsInputChange} />1
+                    </div>
+                    <div>
+                        <span>
+                            Place&nbsp;
+                        </span>
+                        <span>
+                            #<input className={style.num_span} type="number" name="span1" step="1" value={this.state.current_span[0]} onChange={this.handleSpanInputChange} />
+                        </span>
+                        &nbsp;to&nbsp;
+                        <span>
+                            #<input className={style.num_span} type="number" name="span2" step="1" value={this.state.current_span[1]} onChange={this.handleSpanInputChange2} />
+                        </span>
+                        <button onClick={this.handleButtonClick} type="submit">Search</button>
+                    </div>
                 </form>
                 {this.state.component_list}
             </div>

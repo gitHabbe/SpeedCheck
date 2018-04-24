@@ -23,17 +23,10 @@ class SpeedComp extends Component {
     }
     
     onChangeHandle(e) {
-        e.preventDefault();
         this.setState({ [e.target.name]: e.target.value })
     }
 
     radioOnChange(e) {
-        e.preventDefault();
-        console.log(e.target)
-        console.log('....................');
-        
-        console.log(e.target.checked);
-        
         this.setState({ limited: (e.target.value === "true") })
     }
 
@@ -47,7 +40,6 @@ class SpeedComp extends Component {
         const tracks_and_times = await fetching.fetch_level_list_leaderboard(
             leaderboard_list, this.state.player1, this.state.player2);
         const rows = tracks_and_times.map((item, index) => {
-            // const key = Math.floor((Math.random() * 10000) + 1)
             const key = this.state.player1 + "-" + this.state.player2 + "-" + item.track;
             let p1_time = parseFloat(item.p1);
             let p2_time = parseFloat(item.p2);
@@ -76,14 +68,26 @@ class SpeedComp extends Component {
             <div className={style.speedcompparent}>
                 <form>
                     <div>
-                        <input placeholder="Player 1 (you)" onChange={this.onChangeHandle} type="text" name="player1"/>
-                        <input placeholder="Player 2" onChange={this.onChangeHandle} type="text" name="player2"/>    
+                        <input
+                        placeholder="Player 1 (you)"
+                        onChange={this.onChangeHandle}
+                        type="text" name="player1"/>
+                        <input
+                        placeholder="Player 2"
+                        onChange={this.onChangeHandle}
+                        type="text" name="player2"/>    
                     </div>
                     <div>
-                        <span><input onChange={this.radioOnChange} type="radio" name="track-filter" value="true" />Run Tracks</span>
-                        <span><input onChange={this.radioOnChange} type="radio" name="track-filter" value="false" />All Tracks</span>
-                        
-                        
+                        <span><input
+                        onChange={this.radioOnChange}
+                        type="radio"
+                        name="track-filter"
+                        value="true" />Run Tracks</span>
+                        <span><input
+                        onChange={this.radioOnChange}
+                        type="radio"
+                        name="track-filter"
+                        value="false" />All Tracks</span>
                         <button onClick={this.submitHandle}>Check</button>
                     </div>
                 </form>

@@ -25,13 +25,13 @@ body {
 }
 
 footer {
-    color: rgb(3, 224, 14);
     position: absolute;
+    color: rgba(16, 76, 206, 0.76);
     right: 0;
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #4e4d4d;
+    background-color: #8c8d8cab;
     text-align: center;
 }
 
@@ -140,10 +140,17 @@ footer {
 }
 
 .speedcompparent table tbody tr th, .speedcompparent table tbody tr td {
-    background-color: teal;
-    width: 200px;
+    /* background-color: teal; */
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    width: 120px;
     text-align: center;
     justify-content: space-between;
+}
+.total_difference {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .paddytable {
@@ -163,80 +170,66 @@ footer {
 }
 
 .tt_box {
-    /* display: flex; */
+    margin: auto;
+    width: 270px;
 }
 
 .tt_box form {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px #222 solid;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    margin: 0 0 20px 0;
+    display: flex;
+    background-color: #DDD;
+}
+.tt_box form :nth-child(2) {
+    display: flex;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+}
+.tt_box form :nth-child(3) {
+    display: flex;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+}
+.tt_box form :nth-child(4) {
     display: flex;
     justify-content: center;
-    background-color: pink;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 6px;
 }
 
+.tt_box form :nth-child(4) * {
+    /* margin: 0 5px; */
+}
 .tt_box_comp {
-    display: flex;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    justify-content: center;
-}
-/* .speedcompform input {
-    display: block;
-    padding: 12px 20px;
-    margin: 5px;
-}
-
-.speedcompform button {
-    clear: left;
-    padding: 13px 32px;
-    background-color: rgb(26, 115, 187);
+    padding: 15px;
+    background-color: black;
     color: white;
-    font-size: 16px;
-}
-
-.playertable {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.playertable th, td {
-    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    text-align: center;
-    padding: 8px;
-}
-
-.playertable tr:nth-child(even) {
-    background-color: #f2f2f2
-}
-
-.playertable tbody tr th {
     font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 50px;
-} */
-
-
-.purple {
-    color: purple
-}
-.red {
-    color: red
-}
-.green {
-    color: green
 }
 
-.total_difference {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
+.tt_box_time {
+    text-align: right;
+    position: relative;
+    top: -7px;
+    /* margin-top: -7px; */
+    /* background-color: rgb(69, 114, 134); */
 }
 
-.table_title {
-    cursor: pointer;
+.flag {
+    /* display: flex; */
+    align-self: auto;
+    height: 20px;
+}
+
+.num_span {
+    width: 30px;
 }

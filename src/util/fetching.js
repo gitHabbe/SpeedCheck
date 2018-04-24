@@ -119,9 +119,9 @@ async function fetch_level_list_leaderboard(track_list, player1, player2) {
     return track_and_times;
 };
     
-async function fetch_dkr64_track_wr(track, vehicle, laps) {
+async function fetch_dkr64_track_wr(track, vehicle, laps, limit) {
     // return axios.get(`https://www.dkr64.com/api/world_record?api_token=${process.env.DKR64_API_TOKEN}&track=${track}&vehicle=${vehicle}&type=standard&laps=${laps}`)
-    return axios.get(`https://www.dkr64.com/api/times?api_token=${process.env.DKR64_API_TOKEN}&track=${track}&vehicle=${vehicle}&type=standard&laps=${laps}&limit=5`);
+    return axios.get(`https://www.dkr64.com/api/times?api_token=${process.env.DKR64_API_TOKEN}&track=${track}&vehicle=${vehicle}&type=standard&laps=${laps}&limit=${limit}`);
 }
 
 module.exports = {
