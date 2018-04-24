@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TT_Info from './tt_level_info.js';
+import TTBoxRow from './tt_box_row.js';
 import style from '../style/style.css';
 
 import fetching from '../util/fetching.js';
 import TrackOption from './track_option.js';
 import dkr_levels from '../dkr_levels.json';
 
-class TTBoard extends Component {
+class TTBox extends Component {
     constructor(props) {
         super(props);
 
@@ -16,7 +16,7 @@ class TTBoard extends Component {
             current_vehicle: 'car',
             current_laps: '3',
             current_span: [1, 5],
-            component_list: []
+            TTBox_rows: []
         }
 
         this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -41,9 +41,9 @@ class TTBoard extends Component {
         console.log(test.data.times);
         
         asdf = test.data.times.slice(this.state.current_span[0] - 1).map((res, index) => {
-            return <TT_Info key={index} rank={res.ranking} name={res.player_name} time={res.time} flag={res.country_iso.toLowerCase()} />
+            return <TTBoxRow key={index} rank={res.ranking} name={res.player_name} time={res.time} flag={res.country_iso.toLowerCase()} />
         })
-        this.setState({ component_list: asdf })
+        this.setState({ TTBox_rows: asdf })
     }
     
     handleLevelSelectChange(e) {
@@ -82,12 +82,12 @@ class TTBoard extends Component {
     
     render() {
         return (
-            <div className={style.tt_box}>
+            <div className={style.TTBoxComp}>
                 <form action="">
                     <select name="levels" onChange={this.handleLevelSelectChange}>
-                        {this.state.level_list.map((level, index) => <option key={index}value={level}>{level}</option>)}
+                        {this.state.level_list.map((level, index) => <option key={index} value={level}>{level}</option>)}
                     </select>
-                    <div>
+                    <div className={style.TTBoxVehicleInput}>
                         <input
                             type="radio"
                             name="vehicle"
@@ -104,7 +104,7 @@ class TTBoard extends Component {
                             value="plane"
                             onChange={this.handleVehicleInputChange} />Plane
                     </div>
-                    <div>
+                    <div className={style.TTBoxLapsInput}>
                         <span>Laps: </span>
                         <input
                             type="radio"
@@ -117,24 +117,26 @@ class TTBoard extends Component {
                             value="1"
                             onChange={this.handleLapsInputChange} />1
                     </div>
-                    <div>
+                    <div className={style.TTBoxPlaceSpan}>
                         <span>
                             Place&nbsp;
                         </span>
-                        <span>
-                            #<input className={style.num_span} type="number" name="span1" step="1" value={this.state.current_span[0]} onChange={this.handleSpanInputChange} />
+                        <span className={style.TTBoxRowNumSpan}>
+                            #<input type="number" name="span1" step="1" value={this.state.current_span[0]} onChange={this.handleSpanInputChange} />
                         </span>
                         &nbsp;to&nbsp;
-                        <span>
-                            #<input className={style.num_span} type="number" name="span2" step="1" value={this.state.current_span[1]} onChange={this.handleSpanInputChange2} />
+                        <span className={style.TTBoxRowNumSpan}>
+                            #<input type="number" name="span2" step="1" value={this.state.current_span[1]} onChange={this.handleSpanInputChange2} />
                         </span>
                         <button onClick={this.handleButtonClick} type="submit">Search</button>
                     </div>
                 </form>
-                {this.state.component_list}
+                <div className={style.TTBoxWrapper}>
+                    {this.state.TTBox_rows}
+                </div>
             </div>
         );
     }
 }
 
-export default TTBoard;
+export default TTBox;

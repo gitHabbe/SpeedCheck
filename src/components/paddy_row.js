@@ -4,8 +4,8 @@ const PaddyRow = (props) => {
     return (
         <tr>
             <td>{props.name}</td>
-            <td>{props.atr_points}</td>
             <td>{props.total_points}</td>
+            <td>{props.atr_points}</td>
             <td>{props.car_points}</td>
             <td>{props.hover_points}</td>
             <td>{props.plane_points}</td>

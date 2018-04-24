@@ -63,173 +63,157 @@ footer {
     color: whitesmoke;
     background-color: #3E8EDE;
 }
-
-.calculatorform {
+/* -------------------------- */
+.LapCalculatorComp {
     display: flex;
-    align-items: center;
     justify-content: center;
+    /* align-items: center; */
 }
 
-.calculatorform button {
-    background-color: rgb(26, 115, 187);
-    border: 2px solid rgb(0, 0, 0);;
-    color: white;
-    padding: 13px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.LapCalculatorComp form {
+    display: flex;
+    flex-direction: column;
+}
+
+.LapCalculatorComp input {
+    width: 100px;
     font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+}
+
+.LapCalculatorComp button {
     cursor: pointer;
 }
-.calculatorform button:hover {
-    background-color: green; 
-    /* color: black;  */
-    border: 2px solid rgb(105, 0, 175);
-}
 
-.calculatorform input {
-    width: 10%;
-    padding: 12px 20px;
-    margin: 8px 4px;
-    box-sizing: border-box;
-    border: 2px solid rgb(73, 70, 70);
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
+.LapCalculatorComp input[type=text]:focus {
+    border: 2px rgba(52, 79, 231, 0.719) solid;
 }
-
-.calculatorform input[type=text]:focus {
-    border: 2px solid rgb(48, 255, 117);
-}
-
-.speedcompparent form {
-    background-color: gray;
+/* -------------------------- */
+.SpeedCompComp {
     display: flex;
-    flex: 0 0 400px;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.speedcompparent form > :nth-child(1) {
+.SpeedCompComp form {
+    border: 1px #222 solid;
+    border-radius: 10px;
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    width: 350px;
-}
-@media screen and (max-width: 4 00px) {
-    .speedcompparent form > :nth-child(1) {
-        flex-direction: column;
-        flex: 0 0 200px;
-    }
-}
-.speedcompparent form :nth-child(1) input{
-    margin: 5px;
+
+    padding: 10px;
+    background-color: rgba(160, 113, 113, 0.575);
 }
 
-.speedcompparent form > :nth-child(2) {
+.SpeedCompComp form div {
     display: flex;
+    justify-content: center;
+}
+
+.SpeedCompComp form button {
+    margin: 7px 0 0 0;
+    padding: 5px 40px;
+}
+.SpeedCompComp table {
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+    border-collapse: collapse;
+    /* justify-content: space-around; */
+    /* width: 35%; */
+}
+
+.SpeedCompComp table th, .SpeedCompComp table td {
     justify-content: space-around;
-    width: 350px;
+    text-align: center;
+    padding: 8px;
+    background-color: rgba(230, 230, 230, 0.733);
 }
 
-.speedcompparent table {
-    display: flex;
-    justify-content: center;
+.SpeedCompComp table th {
+    padding: 12px;
+    background-color: rgba(24, 228, 17, 0.705);
+    cursor: pointer;
+}
+.SpeedCompComp table th:hover {
+    background-color: rgba(0, 167, 153, 0.705);
 }
 
-.speedcompparent table tbody tr th, .speedcompparent table tbody tr td {
-    /* background-color: teal; */
-    font-weight: bold;
+.SpeedCompComp table :first-child > :first-child {
+    border-collapse: separate;
+    border-radius: 34px 0 0 0;
+}
+
+.SpeedCompComp table :first-child > :last-child {
+    border-radius: 0 34px 0 0;
+}
+
+.SpeedCompComp .total_difference {
+    font-weight: 900;
     font-family: 'Open Sans', sans-serif;
-    width: 120px;
-    text-align: center;
-    justify-content: space-between;
-}
-.total_difference {
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
 }
 
-.paddytable {
-    display: flex;
-}
-
-.paddytable table {
-    width: 100%;
-    justify-content: center;
-}
-
-.paddytable table tbody tr th, .paddytable table tbody tr td {
-    background-color: teal;
-    width: 90px;
-    text-align: center;
-    justify-content: space-between;
-}
-
-.tt_box {
+.TTBoxComp {
     margin: auto;
     width: 270px;
 }
 
-.tt_box form {
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px #222 solid;
+.TTBoxComp form {
     display: flex;
     flex-direction: column;
-    display: flex;
-    margin: 0 0 20px 0;
-    display: flex;
+    border: 2px black solid;
+    
+    border-radius: 10px;
+    padding: 12px;
     background-color: #DDD;
+    border: 1px #222 solid;
+    margin: 0 0 20px 0;
 }
-.tt_box form :nth-child(2) {
+.TTBoxVehicleInput {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+.TTBoxLapsInput {
     display: flex;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     justify-content: center;
 }
-.tt_box form :nth-child(3) {
-    display: flex;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    justify-content: center;
-}
-.tt_box form :nth-child(4) {
+.TTBoxPlaceSpan {
     display: flex;
     justify-content: center;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
     margin: 0 6px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+.TTBoxWrapper {
+    padding: 20px 0 15px 0;
+    background-color: #000;
 }
 
-.tt_box form :nth-child(4) * {
-    /* margin: 0 5px; */
-}
-.tt_box_comp {
-    padding: 15px;
+.TTBoxRowComp {
+    padding: 0 20px;
     background-color: black;
     color: white;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
 }
 
-.tt_box_time {
+.TTBoxRowTime {
     text-align: right;
     position: relative;
     top: -7px;
-    /* margin-top: -7px; */
-    /* background-color: rgb(69, 114, 134); */
 }
 
-.flag {
+.TTBoxRowFlag {
     /* display: flex; */
     align-self: auto;
     height: 20px;
 }
 
-.num_span {
+.TTBoxRowNumSpan input {
     width: 30px;
 }

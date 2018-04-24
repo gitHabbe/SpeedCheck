@@ -22,14 +22,15 @@ class PaddyBoard extends Component {
     async get_player_components(player_points) {
         let row_list = []
         player_points.forEach((player, index) => {
+            console.log(player)
             row_list.push(<PaddyRow
                 key={index}
                 name={player.name}
                 total_points={player.total_points}
                 atr_points={player.atr_points}
-                car_points={player.atr_points}
-                hover_points={player.atr_points}
-                plane_points={player.atr_points}
+                car_points={player.car_points}
+                hover_points={player.hover_points}
+                plane_points={player.plane_points}
                 car_wrs_count={player.car_wrs_count}
                 hover_wrs_count={player.hover_wrs_count}
                 plane_wrs_count={player.plane_wrs_count}
@@ -70,8 +71,8 @@ class PaddyBoard extends Component {
             return { 
                 name: player.name,
                 id: player.id,
-                atr_points: 0,
                 total_points: 0,
+                atr_points: 0,
                 car_points: 0,
                 hover_points: 0,
                 plane_points: 0,
@@ -106,7 +107,7 @@ class PaddyBoard extends Component {
                             player_points[index2].hover_points += (10 - index)
                             if (index === 0) player_points[index2].hover_wrs_count += 1;
                         }
-                        if (track.name.includes("(plane)")){
+                        if (track.name.includes("(plane)")) {
                             player_points[index2].plane_points += (10 - index)
                             if (index === 0) player_points[index2].plane_wrs_count += 1;
                         }
@@ -122,13 +123,13 @@ class PaddyBoard extends Component {
 
     render() {
         return (
-            <div className={style.paddytable}>
+            <div className={style.SpeedCompComp}>
                 <table >
                     <tbody>
                         <tr>
                             <th onClick={this.sort_by_name} attribute="asdf" className={style.table_title}>Name</th>
-                            <th obj_prop="atr_points" onClick={this.sort_by_points} className={style.table_title}>ATR</th>
                             <th obj_prop="total_points" onClick={this.sort_by_points} className={style.table_title}>All</th>
+                            <th obj_prop="atr_points" onClick={this.sort_by_points} className={style.table_title}>ATR</th>
                             <th obj_prop="car_points" onClick={this.sort_by_points} className={style.table_title}>Car</th>
                             <th obj_prop="hover_points" onClick={this.sort_by_points} className={style.table_title}>Hover</th>
                             <th obj_prop="plane_points" onClick={this.sort_by_points} className={style.table_title}>Plane</th>

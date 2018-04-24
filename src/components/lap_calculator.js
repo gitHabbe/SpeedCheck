@@ -45,22 +45,30 @@ class LapCalculator extends Component {
 
     render() {
         return (
-            <div>
-                <form className={style.calculatorform}>
+            <div className={style.LapCalculatorComp}>
+                <form>
                     <input 
                         onChange={this.onChangeHandle}
-                        placeholder="Lap 1 time..." type="text" name="lap1" />
+                        placeholder="Lap 1 time..."
+                        type="text"
+                        name="lap1" />
                     <input 
                         onChange={this.onChangeHandle}
-                        placeholder="Lap 2 time..." type="text" name="lap2" />
+                        placeholder="Lap 2 time..."
+                        type="text"
+                        name="lap2" />
                     <input 
-                        disabled placeholder="Lap 3 time..." type="text" name="lap-3"
+                        disabled placeholder="Lap 3 time..."
+                        type="text"
+                        name="lap-3"
                         value={this.state.lap3}/>
                     <input 
                         onChange={this.onChangeHandle}
-                        placeholder="Final time..." type="text" name="final" />
-                    <button onClick={this.submitHandle}>Get time</button>
-                </form>     
+                        placeholder="Final time..."
+                        type="text"
+                        name="final" />
+                </form>
+                <button onClick={this.submitHandle}>Get time</button>
             </div>
         );
     }

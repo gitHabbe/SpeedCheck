@@ -11,7 +11,7 @@ const Navbar = () => {
                 <NavbarItem href="/lap-calculator" name="Lap calculator" />
                 <NavbarItem href="/speedcomp" name="Speed comparison" />
                 <NavbarItem href="/paddyboard" name="PaddyBoard" />
-                <NavbarItem href="/ttlb" name="TTBoard" />
+                <NavbarItem href="/ttbox" name="TT Box" />
             </ul>
         </div>
     );

@@ -11,9 +11,10 @@ class SpeedComp extends Component {
         this.state = {
             player1: "habbe",
             player2: "nordicboa",
-            player_list: [],
+            player_list: ["Player 1", "Player 2"],
             row_components: [],
             total_diff: "",
+            diff_color: "",
             limited: true
         }
 
@@ -53,45 +54,44 @@ class SpeedComp extends Component {
         this.setState({ row_components: rows })
         if (total_diff > 0) {
             let sentence = `${this.state.player_list[0]} is losing by +`
-            this.setState({ total_diff: sentence + total_diff.toFixed(2)})
+            this.setState({ total_diff: sentence + total_diff.toFixed(2), diff_color: "red" })
         } else {
             let sentence = `${this.state.player_list[0]} is winning by `
-            this.setState({ total_diff: sentence + String(total_diff.toFixed(2))})
+            this.setState({ total_diff: sentence + String(total_diff.toFixed(2)), diff_color: "green" })
         }
-        let total_diff_style = {}
         console.log(this.state.total_diff)
     }
     
     render() {
-        console.log(this.state.limited)
+        console.log(this.state.diff_color)
         return (
-            <div className={style.speedcompparent}>
+            <div className={style.SpeedCompComp}>
                 <form>
-                    <div>
-                        <input
+                    <input
                         placeholder="Player 1 (you)"
                         onChange={this.onChangeHandle}
-                        type="text" name="player1"/>
-                        <input
+                        type="text"
+                        name="player1" />
+                    <input
                         placeholder="Player 2"
                         onChange={this.onChangeHandle}
-                        type="text" name="player2"/>    
-                    </div>
+                        type="text"
+                        name="player2" />    
                     <div>
                         <span><input
-                        onChange={this.radioOnChange}
-                        type="radio"
-                        name="track-filter"
-                        value="true" />Run Tracks</span>
+                            onChange={this.radioOnChange}
+                            type="radio"
+                            name="track-filter"
+                            value="true" />Run Tracks</span>
                         <span><input
-                        onChange={this.radioOnChange}
-                        type="radio"
-                        name="track-filter"
-                        value="false" />All Tracks</span>
-                        <button onClick={this.submitHandle}>Check</button>
+                            onChange={this.radioOnChange}
+                            type="radio"
+                            name="track-filter"
+                            value="false" />All Tracks</span>
                     </div>
+                    <button onClick={this.submitHandle}>Compare</button>
                 </form>
-                <p className={style.total_difference}>{this.state.total_diff}</p>
+                <p className={style.total_difference} style={{color: this.state.diff_color}}>{this.state.total_diff}</p>
                 <table>
                     <tbody>
                         <tr>
