@@ -1,13 +1,20 @@
 {
     "contenders": [
         { "name": "dkr_paddy", "id": "v8lg02jm" },
-        { "name": "habbe", "id": "98rmoqj1" },
-        { "name": "ave", "id": "68wq0n48" },
-        { "name": "mrsgizamaluke", "id": "zx7m5yx7" },
-        { "name": "bandow2000", "id": "pj0ndom8" },
-        { "name": "blakebates", "id": "18q6d7jn" },
-        { "name": "nordicboa", "id": "98r4z3j1" },
-        { "name": "tridenttail", "id": "y8dkkoj6" },
-        { "name": "freerunnerguys", "id": "qjn6ddxm" }
+        { "name": "Habbe", "id": "98rmoqj1" },
+        { "name": "Ave", "id": "68wq0n48" },
+        { "name": "MrsGizamaluke", "id": "zx7m5yx7" },
+        { "name": "Bandow2000", "id": "pj0ndom8" },
+        { "name": "BlakeBates", "id": "18q6d7jn" },
+        { "name": "NordicBoa", "id": "98r4z3j1" },
+        { "name": "TridentTail", "id": "y8dkkoj6" },
+        { "name": "Olympus72", "id": "zxzez4xq" },
+        { "name": "JoeDamillio", "id": "o863wq8z" },
+        { "name": "Neddie07", "id": "e8ezmdo8" },
+        { "name": "Andypanther", "id": "dx3vw68l" },
+        { "name": "CG358", "id": "qjoqp386" },
+        { "name": "A.K.N", "id": "zx74v6x7" },
+        { "name": "Prakcity", "id": "48g71p8p" },
+        { "name": "FreeRunnerGuys", "id": "qjn6ddxm" }
     ]
 }
