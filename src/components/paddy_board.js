@@ -134,7 +134,7 @@ class PaddyBoard extends Component {
                             <th obj_prop="hover_points" onClick={this.sort_by_points} className={style.table_title}>Hover</th>
                             <th obj_prop="plane_points" onClick={this.sort_by_points} className={style.table_title}>Plane</th>
                             <th obj_prop="car_wrs_count" onClick={this.sort_by_points} className={style.table_title}>CarWR</th>
-                            <th obj_prop="hover_wrs_count" onClick={this.sort_by_points} className={style.table_title}>PlaneWR</th>
+                            <th obj_prop="hover_wrs_count" onClick={this.sort_by_points} className={style.table_title}>HoverWR</th>
                             <th obj_prop="plane_wrs_count" onClick={this.sort_by_points} className={style.table_title}>PlaneWR</th>
                             <th obj_prop="total_wrs_count" onClick={this.sort_by_points} className={style.table_title}>TotalWR</th>
                         </tr>
