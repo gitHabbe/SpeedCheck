@@ -98,18 +98,21 @@ class PaddyBoard extends Component {
                         
                         if (index === 0) {
                             player_points[index2].total_wrs_count += 1;
+                            if (track.name.includes("Car")) player_points[index2].car_wrs_count += 1;
+                            if (track.name.includes("(car)")) player_points[index2].car_wrs_count += 1;
+                            if (track.name.includes("Hover")) player_points[index2].hover_wrs_count += 1;
+                            if (track.name.includes("(hover)")) player_points[index2].hover_wrs_count += 1;
+                            if (track.name.includes("Plane")) player_points[index2].plane_wrs_count += 1;
+                            if (track.name.includes("(plane)")) player_points[index2].plane_wrs_count += 1;
                         }
-                        if (track.name.includes("(car)") || track.name.includes("Car")) {
+                        if (track.name.includes("(car)")) {
                             player_points[index2].car_points += (10 - index)
-                            if (index === 0) player_points[index2].car_wrs_count += 1;
                         }
-                        if (track.name.includes("(hover)") || track.name.includes("Hover")) {
+                        if (track.name.includes("(hover)")) {
                             player_points[index2].hover_points += (10 - index)
-                            if (index === 0) player_points[index2].hover_wrs_count += 1;
                         }
-                        if (track.name.includes("(plane)") || track.name.includes("Plane")) {
+                        if (track.name.includes("(plane)")) {
                             player_points[index2].plane_points += (10 - index)
-                            if (index === 0) player_points[index2].plane_wrs_count += 1;
                         }
                     }
                 })
