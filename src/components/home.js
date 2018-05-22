@@ -5,7 +5,7 @@ import style from '../style/style.css'
 const Home = () => {
     return (
         <div className={style.home}>
-            This is HOME
+            This is the homepage
         </div>
     );
 };

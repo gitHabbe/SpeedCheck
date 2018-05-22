@@ -83,6 +83,7 @@ class TTBox extends Component {
     render() {
         return (
             <div className={style.TTBoxComp}>
+                <p>Printscreen black box for stream overlay</p>
                 <form action="">
                     <select name="levels" onChange={this.handleLevelSelectChange}>
                         {this.state.level_list.map((level, index) => <option key={index} value={level}>{level}</option>)}
