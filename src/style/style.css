@@ -220,7 +220,7 @@ footer {
 }
 
 .imagesComp {
-    background-color: grey;
+    /* background-color: grey; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
