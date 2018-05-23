@@ -12,6 +12,7 @@ const Navbar = () => {
                 <NavbarItem href="/speedcomp" name="Speed comparison" />
                 <NavbarItem href="/paddyboard" name="PaddyBoard" />
                 <NavbarItem href="/ttbox" name="TT Box" />
+                <NavbarItem href="/images" name="Images" />
             </ul>
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import fetching from "../util/fetching.js";
-import TableRow from '../components/table_row.js'
+import SpeedCompRow from '../components/speedcomp_row.js'
 import style from '../style/style.css';
 
 class SpeedComp extends Component {
@@ -9,8 +9,8 @@ class SpeedComp extends Component {
         super(props);
 
         this.state = {
-            player1: "habbe",
-            player2: "nordicboa",
+            player1: "",
+            player2: "",
             player_list: ["Player 1", "Player 2"],
             row_components: [],
             total_diff: "",
@@ -36,10 +36,11 @@ class SpeedComp extends Component {
         this.setState({ player_list: [this.state.player1, this.state.player2] });
         const track_list = await fetching.fetch_track_names();
         const leaderboard_list = await fetching.fetch_track_times(track_list, this.state.limited);
-        console.log('leaderboard_list: ', leaderboard_list);
+        // console.log('leaderboard_list: ', leaderboard_list);
         let total_diff = 0;
         const tracks_and_times = await fetching.fetch_level_list_leaderboard(
-            leaderboard_list, this.state.player1, this.state.player2);
+            leaderboard_list, this.state.player1, this.state.player2
+        );
         const rows = tracks_and_times.map((item, index) => {
             const key = this.state.player1 + "-" + this.state.player2 + "-" + item.track;
             let p1_time = parseFloat(item.p1);
@@ -49,7 +50,7 @@ class SpeedComp extends Component {
             let difference = parseFloat((p1_time - p2_time).toFixed(2));
             total_diff += difference
             this.setState({ total_diff: (this.state.total_diff + difference)})
-            return <TableRow key={key} track={item.track} p1={item.p1} p2={item.p2} difference={difference} />
+            return <SpeedCompRow key={key} track={item.track} p1={item.p1} p2={item.p2} difference={difference} />
         })
         this.setState({ row_components: rows })
         if (total_diff > 0) {
@@ -59,11 +60,11 @@ class SpeedComp extends Component {
             let sentence = `${this.state.player_list[0]} is winning by `
             this.setState({ total_diff: sentence + String(total_diff.toFixed(2)), diff_color: "green" })
         }
-        console.log(this.state.total_diff)
+        // console.log(this.state.total_diff)
     }
     
     render() {
-        console.log(this.state.diff_color)
+        // console.log(this.state.diff_color)
         return (
             <div className={style.SpeedCompComp}>
                 <form>

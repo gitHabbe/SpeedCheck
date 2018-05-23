@@ -115,7 +115,7 @@ async function fetch_level_list_leaderboard(track_list, player1, player2) {
         })
         track_and_times.push({ track: element.name, p1: temp_time_p1, p2: temp_time_p2 })
     }
-    console.log('track_and_times: ', track_and_times);
+    // console.log('track_and_times: ', track_and_times);
     return track_and_times;
 };
     

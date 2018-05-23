@@ -38,7 +38,7 @@ class TTBox extends Component {
             this.state.current_laps,
             this.state.current_span[1]
         )
-        console.log(test.data.times);
+        // console.log(test.data.times);
         
         asdf = test.data.times.slice(this.state.current_span[0] - 1).map((res, index) => {
             return <TTBoxRow key={index} rank={res.ranking} name={res.player_name} time={res.time} flag={res.country_iso.toLowerCase()} />
@@ -51,24 +51,24 @@ class TTBox extends Component {
     }
 
     handleVehicleInputChange(e) {
-        console.log('e.target.value: ', e.target.value);
+        // console.log('e.target.value: ', e.target.value);
         this.setState({ current_vehicle: e.target.value })
     }
 
     handleLapsInputChange(e) {
         this.setState({ current_laps: e.target.value })
-        console.log('e.target.value: ', e.target.value);
+        // console.log('e.target.value: ', e.target.value);
     }
     
     handleSpanInputChange(e) {
         let list_values = [e.target.value, this.state.current_span[1]]
         this.setState({ current_span: list_values })
-        console.log('e.target.value: ', e.target.value);
+        // console.log('e.target.value: ', e.target.value);
     }
     handleSpanInputChange2(e) {
         let list_values = [this.state.current_span[0], e.target.value]
         this.setState({ current_span: list_values })
-        console.log('e.target.value: ', e.target.value);
+        // console.log('e.target.value: ', e.target.value);
     }
 
     componentDidMount() {

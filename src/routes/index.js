@@ -7,6 +7,7 @@ import PaddyBoard from '../components/paddy_board.js';
 import TTBox from '../components/tt_box.js';
 import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
+import Images from '../components/images.js';
 import Home from '../components/home.js';
 import style from '../style/style.css'
 
@@ -21,6 +22,7 @@ export default () => (
                     <Route exact path="/speedcomp" render={(props) => <SpeedComp />} />
                     <Route exact path="/paddyboard" render={(props) => <PaddyBoard />} />
                     <Route exact path="/ttbox" render={(props) => <TTBox />} />
+                    <Route exact path="/images" render={(props) => <Images />} />
                 </Switch>
             </div>
             {/* <Footer /> */}

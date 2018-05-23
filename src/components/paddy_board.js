@@ -22,7 +22,7 @@ class PaddyBoard extends Component {
     async get_player_components(player_points) {
         let row_list = []
         player_points.forEach((player, index) => {
-            console.log(player)
+            // console.log(player)
             row_list.push(<PaddyRow
                 key={index}
                 name={player.name}
@@ -42,7 +42,7 @@ class PaddyBoard extends Component {
     
     sort_by_points(e) {
         e.preventDefault();
-        console.log(e.target.getAttribute("obj_prop"));
+        // console.log(e.target.getAttribute("obj_prop"));
         let player_points = this.state.player_scores;
         function sort_total(a, b) {
             let comparison = 0;
@@ -83,7 +83,7 @@ class PaddyBoard extends Component {
             }
         })
         const track_list = await fetching.fetch_track_names();
-        console.log('track_list: ', track_list);
+        // console.log('track_list: ', track_list);
         const top_10 = await fetching.fetch_top10_tracks(track_list);
         // array of 3 track, each have a leaderboard, leaderboard is array of 10 runs
         top_10.forEach(track => {

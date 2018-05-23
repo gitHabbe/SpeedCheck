@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
 
 html {
     height: 100%;
@@ -216,4 +217,58 @@ footer {
 
 .TTBoxRowNumSpan input {
     width: 30px;
+}
+
+.imagesComp {
+    background-color: grey;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagesComp form {
+    justify-content: center;
+}
+.imagesComp div {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* flex: 1 calc(100% / 5) */
+    flex-direction: column;
+}
+
+.ImageRowComp {
+    display: flex;
+    display: none;
+    justify-content: space-between;
+
+    width: 270px;
+    height: 70px;
+    /* margin: 10px; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ImageRowComp span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ImageRowPlace {
+    margin: 5px;
+    font-weight: bold;
+    font-size: 25px;
+}
+.ImageRowTime {
+    margin: 5px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.ImageRowTrackName {
+    margin-left: 4px;
+    letter-spacing: -2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    /* font-family: 'Archivo Black'; */
+    font-size: 26px;
 }
