@@ -52,7 +52,7 @@ class Images extends Component {
             />
         })
         this.setState({ rows: temp_list })
-        const rowNodes = this.myRef.current.childNodes[1].childNodes;
+        const rowNodes = this.myRef.current.childNodes[2].childNodes;
         for (let i = 0; i < rowNodes.length; i++) {
             const element = rowNodes[i]
             domtoimage.toPng(element)
