@@ -75,7 +75,10 @@ class Images extends Component {
     render() {
         return (
             <div ref={this.myRef} className={style.imagesComp}>
-                <p><strong>After clicking on button, right-click on each image and click "Save image as..."</strong></p>
+                <div>
+                    <p>Inspired by: <a href="https://www.twitch.tv/neddie07z">Neddie07z</a></p>
+                    <p><strong>After clicking on button, right-click on each image and click "Save image as..."</strong></p>
+                </div>
                 <form action="">
                     <input
                         onChange={this.handleInputChange.bind(this)}

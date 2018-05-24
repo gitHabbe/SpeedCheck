@@ -127,8 +127,13 @@ class PaddyBoard extends Component {
     render() {
         return (
             <div className={style.SpeedCompComp}>
-                <p>Rank 1 on a track = 10 points</p>
-                <p>Rank 10 on a track = 1 points</p>
+            <div>
+                <p>Inspired by: <a href="https://www.twitch.tv/dkr_paddy">Paddy</a></p>
+                <span>
+                    <p>Rank 1 on a track = 10 points
+                     | Rank 10 on a track = 1 points</p>
+                </span>
+            </div>
                 <table >
                     <tbody>
                         <tr>
