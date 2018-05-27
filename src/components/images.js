@@ -24,6 +24,8 @@ class Images extends Component {
     
     async handleButtonClick(e) {        
         e.preventDefault()
+        let rowsNode = document.querySelector("#rows");
+        rowsNode.innerHTML = "";
         const runner_id = await fetching.get_player_id(this.state.runner);
         const level_list = await fetching.fetch_track_names();
         // const level_list_data = await fetching.fetch_track_times(level_list.slice(0, 6));
@@ -60,7 +62,7 @@ class Images extends Component {
                 var img = new Image();
                 img.src = dataUrl;
                 img.name = "test";
-                document.querySelector("#rows").appendChild(img);
+                rowsNode.appendChild(img);
             })
             .catch(function (error) {
                 console.error('oops, something went wrong!', error);
@@ -82,7 +84,7 @@ class Images extends Component {
                 <form action="">
                     <input
                         onChange={this.handleInputChange.bind(this)}
-                        placeholder="Speedrunner name"
+                        placeholder="Runner name"
                         type="text"
                     />
                     <button onClick={this.handleButtonClick}>Generate pictures</button>
