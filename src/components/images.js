@@ -70,7 +70,7 @@ class Images extends Component {
         }
         setTimeout(function(){ 
             this.setState({rows: []})
-        }.bind(this), 1000);
+        }.bind(this), 2000);
     }
     
     
