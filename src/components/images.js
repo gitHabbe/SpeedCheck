@@ -80,7 +80,7 @@ class Images extends Component {
             <div ref={this.myRef} className={style.imagesComp}>
                 <div className={style.ImageInfo}>
                     <p>Inspired by: <a href="https://www.twitch.tv/neddie07z">Neddie07z</a></p>
-                    <p><strong>After clicking on button, right-click on each image and click "Save image as..."</strong></p>
+                    <p><strong>After clicking the button, right-click on each image and click "Save image as..."</strong></p>
                 </div>
                 <form action="">
                     <input
