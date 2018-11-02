@@ -27,8 +27,9 @@ function fetch_player(name) {
  * @returns {int} id
  */
 async function get_player_id(name) {
-    let player = await fetch_player(name);
-    return player.data.data[0].id;
+    let players = await fetch_player(name);
+    let player = players.data.data.find(player => player.names.international.trim().toLowerCase() == name.toLowerCase())
+    return player.id;
 };
 
 function fetch_level_list() {

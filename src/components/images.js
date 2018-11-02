@@ -27,10 +27,11 @@ class Images extends Component {
         let rowsNode = document.querySelector("#rows");
         rowsNode.innerHTML = "";
         const runner_id = await fetching.get_player_id(this.state.runner);
+        console.log('runner_id: ', runner_id);
         const level_list = await fetching.fetch_track_names();
         // const level_list_data = await fetching.fetch_track_times(level_list.slice(0, 6));
         const level_list_data = await fetching.fetch_track_times(level_list);
-        // console.log('level_list_data: ', level_list_data);
+        console.log('level_list_data: ', level_list_data);
         const temp_list = level_list_data.map((track, index) => {
             let track_name = track.name.split("(")[0].slice(0, -1)
             

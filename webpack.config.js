@@ -43,6 +43,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true
   },
-  plugins: [htmlPlugin, dotenvPlugin],
+  plugins: [ htmlPlugin, dotenvPlugin ],
   node: { fs: 'empty' }
 };
