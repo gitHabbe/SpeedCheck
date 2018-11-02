@@ -18,7 +18,11 @@
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.0.7",
     "style-loader": "^0.20.3",
+<<<<<<< HEAD
     "webpack": "^4.2.0",
+=======
+    "webpack": "^4.24.0",
+>>>>>>> cdc2f620eb890997806cbb96179b0e41c0097827
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
@@ -28,8 +32,8 @@
     "dom-to-image": "^2.6.0",
     "dotenv": "^5.0.1",
     "dotenv-webpack": "^1.5.7",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1"
   }
 }
