@@ -8,7 +8,8 @@ const TTBoxRow = (props) => {
             <span>
                 <img 
                     className={style.TTBoxRowFlag}
-                    src={"https://lipis.github.io/flag-icon-css/flags/4x3/" + props.flag + ".svg"} />
+                    src={"https://lipis.github.io/flag-icon-css/flags/4x3/" + props.flag + ".svg"}
+                />
             </span>
             <span> #{props.rank}</span>
             <span className={style.TTBoxRowName}> - {props.name}</span>
