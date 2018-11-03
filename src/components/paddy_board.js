@@ -134,7 +134,7 @@ class PaddyBoard extends Component {
                         | Rank 10 on a track = 1 points</p>
                     </span>
                 </div>
-                <table >
+                <table className={style.PaddyTable}>
                     <tbody>
                         <tr>
                             <th onClick={this.sort_by_name} attribute="asdf" className={style.table_title}>Name</th>
