@@ -5,6 +5,7 @@ import style from '../style/style.css';
 import PaddyRow from './paddy_row.js';
 import contenders from '../contenders.json';
 import dkr_levels from '../dkr_levels.json';
+import paddyboard_data from '../paddyboard_data.json';
 
 class PaddyBoard extends Component {
     constructor(props){
@@ -83,11 +84,12 @@ class PaddyBoard extends Component {
             }
         })
         this.setState({paddy_rows: <h1>Loading...</h1>})
-        const track_list = await fetching.fetch_track_names();
+        // const track_list = await fetching.fetch_track_names();
         // console.log('track_list: ', track_list);
-        const top_10 = await fetching.fetch_top10_tracks(track_list);
+        // const top_10 = await fetching.fetch_top10_tracks(track_list);
         // array of 3 track, each have a leaderboard, leaderboard is array of 10 runs
-        top_10.forEach(track => {
+        // top_10.forEach(track => {
+        paddyboard_data.forEach(track => {
             track.leaderboard.forEach((run, index) => {
                 player_points.forEach((player, index2) => {
                     if (player.id === run.run.players[0].id) {
