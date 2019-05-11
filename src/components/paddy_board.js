@@ -82,6 +82,7 @@ class PaddyBoard extends Component {
                 total_wrs_count: 0
             }
         })
+        this.setState({paddy_rows: <h1>Loading...</h1>})
         const track_list = await fetching.fetch_track_names();
         // console.log('track_list: ', track_list);
         const top_10 = await fetching.fetch_top10_tracks(track_list);
@@ -130,8 +131,7 @@ class PaddyBoard extends Component {
                 <div className={style.PaddyInfo}>
                     <p>Inspired by: <a href="https://www.twitch.tv/dkr_paddy">Paddy</a></p>
                     <span>
-                        <p>Rank 1 on a track = 10 points
-                        | Rank 10 on a track = 1 points</p>
+                        <p>Rank 1 on a track = 10 points | Rank 10 on a track = 1 points</p>
                     </span>
                 </div>
                 <table className={style.PaddyTable}>
