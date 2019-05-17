@@ -13,6 +13,7 @@ const Navbar = () => {
                 <NavbarItem href="/paddyboard" name="PaddyBoard" />
                 <NavbarItem href="/ttbox" name="TT Box" />
                 <NavbarItem href="/images" name="Images" />
+                <NavbarItem href="/types" name="TypeChart" />
             </ul>
         </div>
     );
