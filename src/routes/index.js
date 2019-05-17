@@ -9,6 +9,7 @@ import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import Images from '../components/images.js';
 import Home from '../components/home.js';
+import TypeChart from '../components/type_chart.js';
 import style from '../style/style.css'
 
 export default () => (
@@ -23,6 +24,7 @@ export default () => (
                     <Route exact path="/paddyboard" render={(props) => <PaddyBoard />} />
                     <Route exact path="/ttbox" render={(props) => <TTBox />} />
                     <Route exact path="/images" render={(props) => <Images />} />
+                    <Route exact path="/types" render={(props) => <TypeChart />} />
                 </Switch>
             </div>
             {/* <Footer /> */}

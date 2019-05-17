@@ -305,3 +305,8 @@ footer {
     margin: 2px;
     text-align: center;
 }
+
+.TypeChart > img {
+    display: block;
+    margin: auto;
+}
