@@ -1,11 +1,14 @@
 import React from 'react';
+import logo from '../../habbeChart3.png';
+// import "../../habbeChart2.png";
+// console.log('asdf: ', asdf);
 
 import style from '../style/style.css'
 
 const TypeChart = () => {
     return (
         <div className={style.TypeChart}>
-            <img src="../habbeChart2.png" alt="Type Chart"/>
+            <img src={logo} alt="Type Chart"/>
         </div>
     );
 };
