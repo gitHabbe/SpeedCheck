@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from '../../habbeChart4.png';
-// import "../../habbeChart2.png";
-// console.log('asdf: ', asdf);
+import logo from '../../habbeChart5.png';
 
 import style from '../style/style.css'
 
