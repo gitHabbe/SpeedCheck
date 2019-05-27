@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../habbeChart5.png';
+import logo from '../../habbeChart8.png';
 
 import style from '../style/style.css'
 
